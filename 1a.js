@@ -8,4 +8,4 @@ function fixStart(s){
     return t
 }
 
-fixStart('babble').join("")
+console.log(fixStart('babble').join(""))
