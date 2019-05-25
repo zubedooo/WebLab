@@ -2,11 +2,10 @@ var express = require('express');
 var app = express();
 var mongoClient = require('mongodb').MongoClient;
 
-mongoClient.connect('mongodb://localhost', function(err, client) {
+mongoClient.connect('mongodb://127.0.0.1/voting', function(err, db) {
     if(!err){
         console.log("Connected...");
         app.use(express.static('public'));
-        var db = client.db('voting');
         db.collection('vote').insert({party:'bjp', vote:0});
         db.collection('vote').insert({party:'congress', vote:0});
         db.collection('vote').insert({party:'nota', vote:0});
